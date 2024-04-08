@@ -13,6 +13,10 @@ builder.Services.AddScoped<IProductService, ProductService>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+// Add AWS Lambda support.
+builder.Services.AddAWSLambdaHosting(LambdaEventSource.HttpApi);
+// OR this for rest api using api gateway
+builder.Services.AddAWSLambdaHosting(LambdaEventSource.RestApi);
 
 var app = builder.Build();
 
